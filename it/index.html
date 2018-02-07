@@ -17,16 +17,14 @@
 
   <div class="mdl-layout mdl-js-layout">
     <header class="mdl-layout__header mdl-layout__header--scroll">
-      <div class="mdl-layout__header-row">
+      <div class="mdl-layout__header-row" style="background-color: rgb(170, 58, 80)">
         <!-- Title -->
         <a href="../" style="font-size: 18pt; margin-right: 20px" class="material-icons">arrow_back</a>
         <span class="mdl-layout-title">Engenharia Informática</span>
         <!-- Add spacer, to align navigation to the right -->
         <div class="mdl-layout-spacer"></div>
         <!-- Navigation -->
-        <nav class="mdl-navigation">
-          <a class="mdl-navigation__link" href=""><strong>Login</strong></a>
-        </nav>
+        <a href="../login"  class="mdl-button mdl-js-button mdl-js-ripple-effect" style="color: white">Login</a>
       </div>
     </header>
     <main class="mdl-layout__content">
@@ -52,8 +50,8 @@
                   <li style="float: right" class="mdl-list__item mdl-list__item--three-line">
                     <span class="mdl-list__item-primary-content">
                       <span>Docente</span>
-                        <span class="mdl-list__item-text-body">
-                          Kishan Nareshpal Jadav
+                        <span id="emaildocente_" class="mdl-list__item-text-body">
+                          ...
                         </span>
                     </span>
                   </li>
@@ -62,12 +60,42 @@
                     <span class="mdl-list__item-primary-content">
                       <span>Cadeira</span>
                         <span class="mdl-list__item-text-body">
-                          <select id="select_cadeira_informatica" name="">
-                            <option value="informatica">Informática</option>
-                            <option value="informatica">Algebra Linear</option>
-                            <option value="informatica">Inglês</option>
-                            <option value="informatica">Arquitetura de Computadores</option>
-                            <option value="informatica">Base de Dados</option>
+                          <select onchange="getCadeira()" id="select_cadeira_informatica">
+                            <optgroup label="Anos">
+                              <option value="">Escolha uma cadeira</option>
+                            </optgroup>
+                            <optgroup label="1o Ano">
+                              <option value="al">Algebra Linear</option>
+                              <option value="teol">Técnicas de Expressão Oral e Escrita</option>
+                              <option value="tic">Tecnologias da Informação e da Comunicação</option>
+                              <option value="sm">Sistemas Multimédia</option>
+                              <option value="as">Análise de Sistemas</option>
+                              <option value="dpd">Diálogos Paz e Desenvolvimento.</option>
+                              <option value="po">Programação por Objetos</option>
+                              <option value="as">Inglês</option>
+                              <option value="lp">Linguagens de Programação</option>
+                            </optgroup>
+
+                            <optgroup label="2o Ano">
+                              <option value="fbd">Fundamentos de Bases de Dados</option>
+                              <option value="so">Sistemas Operativos</option>
+                              <option value="lc">Linguagens e Computação</option>
+                              <option value="ihm">Interação Homem Maquina</option>
+                              <option value="ssw">Sistemas e Serviços Web</option>
+                              <option value="dds">Desenvolvimento do Software</option>
+                              <option value="edaf">Estruturas de Dados e Algoritmos Fundamentais</option>
+                              <option value="iia">Introdução à Inteligência Artificial</option>
+                              <option value="cg">Computação Gráfica</option>
+                              <option value="e">Estatística</option>
+                            </optgroup>
+
+                            <optgroup label="3o Ano">
+                              <option value="sr">Sistemas em Rede</option>
+                              <option value="edaa">Estruturas de Dados e Algoritmos Avançados</option>
+                              <option value="sgbd">Sistemas de Gestão de Bases de Dados</option>
+                              <option value="asi">Administração de Sistemas Informáticos</option>
+                              <option value="gpi">Gestão de Projetos Informáticos</option>
+                            </optgroup>
                           </select>
                         </span>
                       </span>
@@ -88,75 +116,17 @@
 
                 <hr>
 
-                <ul class="mdl-list">
+                <ul id="estudantesUl" class="mdl-list">
 
-                  <li class="mdl-list__item">
-                    <span class="mdl-list__item-primary-content">
-                      Nome do Aluno
-                    </span>
-                    <span class="mdl-list__item-secondary-action">
-                      Está presente?
-                    </span>
-                  </li>
+                    <p style="text-align: center">...</p>
 
-                  <li class="mdl-list__item mdl-list__item--two-line">
-                    <span class="mdl-list__item-primary-content">
-                      <i class="material-icons mdl-list__item-avatar">person</i>
-                      <span><strong>Stélio Braga</strong></span>
-                      <span class="mdl-list__item-sub-title">62 Laifes</span>
-                    </span>
-                    <span class="mdl-list__item-secondary-action">
-                      <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="1">
-                        <input type="checkbox" id="1" class="mdl-checkbox__input" checked />
-                      </label>
-                    </span>
-                  </li>
-
-                  <li class="mdl-list__item mdl-list__item--two-line">
-                    <span class="mdl-list__item-primary-content">
-                      <i class="material-icons mdl-list__item-avatar">person</i>
-                      <span><strong>Nádia Ali</strong></span>
-                      <span class="mdl-list__item-sub-title">102 Laifes</span>
-                    </span>
-                    <span class="mdl-list__item-secondary-action">
-                      <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="2">
-                        <input type="checkbox" id="2" class="mdl-checkbox__input" checked />
-                      </label>
-                    </span>
-                  </li>
-
-                  <li class="mdl-list__item mdl-list__item--two-line">
-                    <span class="mdl-list__item-primary-content">
-                      <i class="material-icons mdl-list__item-avatar">person</i>
-                      <span><strong>Pascoal Messias</strong></span>
-                      <span class="mdl-list__item-sub-title">infinitas Laifes</span>
-                    </span>
-                    <span class="mdl-list__item-secondary-action">
-                      <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="3">
-                        <input type="checkbox" id="3" class="mdl-checkbox__input" checked />
-                      </label>
-                    </span>
-                  </li>
-
-                  <li class="mdl-list__item mdl-list__item--two-line">
-                    <span class="mdl-list__item-primary-content">
-                      <i class="material-icons mdl-list__item-avatar">person</i>
-                      <span><strong>Sintu Bipin</strong></span>
-                      <span class="mdl-list__item-sub-title">62 Laifes</span>
-                    </span>
-                    <span class="mdl-list__item-secondary-action">
-                      <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="4">
-                        <input type="checkbox" id="4" class="mdl-checkbox__input" checked />
-                      </label>
-                    </span>
-                  </li>
                 </ul>
 
                 <hr style="margin-bottom: 0px">
                 <div class="mdc-card__actions" style="margin-right: 40px; margin-top: 0px">
                   <div class="mdl-layout-spacer"></div>
                   <div class="mdc-card__action-buttons">
-                    <button class="mdc-button mdc-button--stroked mdc-card__action mdc-card__action--button"><strong>Guardar</strong></button>
+                    <button id="save_" class="mdc-button mdc-button--stroked mdc-card__action mdc-card__action--button"><strong>Guardar</strong></button>
                   </div>
                 </div>
 
@@ -175,10 +145,15 @@
     <script src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.1.4/js.cookie.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
     <script src="../css-js/material-components-web/dist/material-components-web.min.js"></script>
+    <script>mdc.autoInit()</script>
     <script src="../css-js/moment.min.js"></script>
     <script src="../css-js/app.js"></script>
+    <script src="it.js"></script>
+
+
 
   </body>
 </html>

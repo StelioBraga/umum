@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <meta charset="UTF-8">
+  <meta name="author" content="Stelio Braga">
+
+  <title>UMUM - Universidade</title>
+
+  <head>
+    <!-- My Style -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="../css-js/app.css">
+    <link rel="stylesheet" href="../css-js/material-components-web/dist/material-components-web.min.css">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-orange.min.css">
+  </head>
+
+<body class="noselect">
+
+  <div class="mdl-layout mdl-js-layout">
+    <header class="mdl-layout__header mdl-layout__header--scroll">
+      <div class="mdl-layout__header-row" style="background-color: rgb(170, 58, 80)">
+        <!-- Title -->
+        <a href="../" style="font-size: 18pt; margin-right: 20px" class="material-icons">arrow_back</a>
+        <span class="mdl-layout-title">UMUM - Cadastro</span>
+        <!-- Add spacer, to align navigation to the right -->
+        <!-- <div class="mdl-layout-spacer"></div> -->
+      </div>
+    </header>
+    <main class="mdl-layout__content">
+      <div class="page-content">
+
+        <div class="mdl-grid" style="margin-top: 50px;">
+          <div class="mdl-layout-spacer"></div>
+            <div class="mdl-cell mdl-cell--4-col">
+
+              <div class="mdc-card mdc-elevation--z4">
+                <div class="mdc-card__media mdc-card__media--square mdc-elevation--z4" style="background-color: rgb(170, 58, 80); color: white">
+                  <h4 style="text-align: center" class="mdc-card__media-content"><strong>Cadastro</strong></h4>
+                </div>
+                <hr style="margin-bottom: 0px; margin-top: 0px">
+
+                <!-- Conteúdo -->
+                <div style="padding: 20px">
+                    <div>
+                      &nbsp
+                      <div style="width: 100%" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <input class="mdl-textfield__input" type="email" id="emailInput">
+                        <label class="mdl-textfield__label" for="emailInput">Email</label>
+                      </div>
+                    </div>
+
+                    <div>
+                      &nbsp
+                      <div style="width: 100%" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <input class="mdl-textfield__input" type="password" id="passInput">
+                        <label class="mdl-textfield__label" for="passInput">Password...</label>
+                      </div>
+                    </div>
+
+                </div>
+
+                <!-- Login -->
+                <div class="mdc-card__actions" style="margin-top: 0px">
+                  <div class="mdl-layout-spacer"></div>
+                  <div class="mdc-card__action-buttons">
+                    <button id="autenticar_" style="border-color: rgb(170, 58, 80); color: black" class="mdc-button mdc-button--stroked mdc-card__action mdc-card__action--button"><strong>Autenticar</strong></button>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          <div class="mdl-layout-spacer"></div>
+        </div>
+      </div>
+
+    </main>
+    </div>
+
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
+    <script src="../css-js/material-components-web/dist/material-components-web.min.js"></script>
+    <script src="../css-js/moment.min.js"></script>
+    <script src="../css-js/app.js"></script>
+    <script src="login.js"></script>
+
+
+  </body>
+</html>
