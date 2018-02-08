@@ -1,10 +1,21 @@
 
+document.onreadystatechange = function () {
+  var state = document.readyState;
+  if (state == 'complete') {
+      setTimeout(function(){
+        // $("#loading").addClass("hidden");
+        document.getElementById("loaded__").setAttribute("hidden", "");
+
+      },1700);
+  }
+};
+
+
 const MDCDialog = mdc.dialog.MDCDialog;
 const MDCDialogFoundation = mdc.dialog.MDCDialogFoundation;
 const util = mdc.dialog.util;
 
 var confirmationdialog_ = new mdc.dialog.MDCDialog.attachTo(document.querySelector('#confirmationdialog_'));
-
 
 moment.locale("pt", {
   weekdays: "Domingo_Segunda-Feira_Terça-Feira_Quarta-Feira_Quinta-Feira_Sexta-Feira_Sábado".split("_")
@@ -16,23 +27,28 @@ document.getElementById('data_').innerHTML="<i>" + data_actual + "</i>";
 document.getElementById('save_').setAttribute("disabled", "");
 
 //Ja fiz login, agora?
-firebase.auth().onAuthStateChanged(function(firebaseUser){
-   if(firebaseUser){
-     //If the user is logged in do this
-     //Save a cookie
-     document.getElementById('emaildocente_').innerHTML = firebaseUser.email;
-     document.getElementById('login_').setAttribute("hidden", "");
-     document.getElementById('logout_').removeAttribute("hidden", "");
+setTimeout(function () {
+  firebase.auth().onAuthStateChanged(function(firebaseUser){
+     if(firebaseUser){
+       //If the user is logged in do this
+       //Save a cookie
+       document.getElementById('emaildocente_').innerHTML = firebaseUser.email;
+       document.getElementById('login_').setAttribute("hidden", "");
+       document.getElementById('logout_').removeAttribute("hidden", "");
+       document.getElementById('main_').removeAttribute("hidden", "");
+       document.getElementById('unautorizedaccess').setAttribute("hidden", "");
 
+     } else {
+         document.getElementById('save_').setAttribute("disabled", "");
+         document.getElementById('login_').removeAttribute("hidden", "");
+         document.getElementById('logout_').setAttribute("hidden", "");
+         document.getElementById('main_').setAttribute("hidden", "");
+         document.getElementById('unautorizedaccess').removeAttribute("hidden", "");
+     }
+  });
+}, 2000);
 
-   } else {
-     document.getElementById('save_').setAttribute("disabled", "");
-     document.getElementById('login_').removeAttribute("hidden", "");
-     document.getElementById('logout_').setAttribute("hidden", "");
-   }
-});
-
-var reference = firebase.database().ref('/Alunos/');
+var reference = firebase.database().ref('/Alunos/cagestao/');
 
 
 ////////// TER LISTA DE ESTUDANTES
@@ -54,7 +70,6 @@ $('select').change(function() {
       document.getElementById('loading__').removeAttribute("hidden", "");
       document.getElementById('spinner__').removeAttribute("hidden", "");
       document.getElementById('error__').setAttribute("hidden", "");
-      // document.getElementById('alunos_save').removeAttribute("hidden", "");
     }
 });
 
@@ -141,7 +156,7 @@ $("#saveconfirm__").click(function(){
     for(var u = 0; u < ch.length; u++){
       nome_do_faltoso = ch[u].parentElement.parentElement.parentElement.childNodes[0].childNodes[1].innerHTML.split(">")[1].split("<")[0];
       n_faltas_do_faltoso = parseInt(ch[u].parentElement.parentElement.parentElement.childNodes[0].childNodes[2].innerHTML);
-      promisesave__ = firebase.database().ref('/Alunos/'+selected_ano+'/'+nome_do_faltoso+"/"+selected_cadeira).set(n_faltas_do_faltoso+1);
+      promisesave__ = firebase.database().ref('/Alunos/cagestao/'+selected_ano+'/'+nome_do_faltoso+"/"+selected_cadeira).set(n_faltas_do_faltoso+1);
     }
 
     document.getElementById('save_').innerHTML = "Sucesso!";

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="pt">
   <meta charset="UTF-8">
-  <meta name="author" content="Stelio Braga">
+  <meta name="author" content="">
 
-  <title>Registo - C. A. e Gestão</title>
+  <title>Registo - Informática</title>
 
   <head>
     <!-- My Style -->
@@ -14,17 +14,27 @@
   </head>
 
 <body class="noselect">
+  <!-- SHOW A COOL LOADING SCREEN WHILE THE CONTENT FINISHES TO LOAD -->
+  <div id="loaded__" style="text-align: center;" class="middler">
+    <h6 style="color: black"><span style="text-align: center"></span><strong>Ciências<br>de Administração.<br>e Gestão</strong></h6>
+    <!-- <div style="width: 100%" id="p2" class="mdl-progress mdl-js-progress mdl-progress__indeterminate"></div> -->
 
-  <div class="mdl-layout mdl-js-layout">
+    <div class="hollow-dots-spinner" :style="spinnerStyle;">
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
+  </div>
+
+  <div id="main_" hidden class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
     <header class="mdl-layout__header mdl-layout__header--scroll">
       <div class="mdl-layout__header-row" style="background-color: rgb(170, 58, 80)">
         <!-- Title -->
         <a href="../" style="font-size: 18pt; margin-right: 20px" class="material-icons">arrow_back</a>
-        <span class="mdl-layout-title">Ciências de Administração e Gestão</span>
+        <span class="mdl-layout-title">C. A. e Gestão</span>
         <!-- Add spacer, to align navigation to the right -->
         <div class="mdl-layout-spacer"></div>
         <!-- Navigation -->
-        <a id="login_" href="../login" hidden class="mdl-button mdl-js-button mdl-js-ripple-effect" style="color: white">Login</a>
         <button id="logout_" hidden class="mdl-button mdl-js-button mdl-js-ripple-effect" style="color: white">Sair da conta</button>
 
       </div>
@@ -62,7 +72,7 @@
                     <span class="mdl-list__item-primary-content">
                       <span>Cadeira</span>
                         <span class="mdl-list__item-text-body">
-                          <select onchange="getCadeira()" id="select_cadeira_informatica">
+                          <select onchange="getCadeira()" id="select_cadeira_gestao">
                             <optgroup label="Anos">
                               <option value="">Escolha uma cadeira</option>
                             </optgroup>
@@ -190,7 +200,43 @@
       </div>
 
     </main>
+  </div>
+
+
+  <div id="unautorizedaccess" hidden>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+      <header class="mdl-layout__header">
+        <div class="mdl-layout__header-row" style="background-color: rgb(170, 58, 80)">
+          <!-- Title -->
+          <a href="../" style="font-size: 18pt; margin-right: 20px" class="material-icons">arrow_back</a>
+          <span class="mdl-layout-title">Acesso Restrito</span>
+          <!-- Add spacer, to align navigation to the right -->
+          <!-- <div class="mdl-layout-spacer"></div> -->
+        </div>
+      </header>
+      <main class="mdl-layout__content">
+        <div class="page-content">
+
+          <div class="mdl-grid" style="margin-top: 50px;">
+            <div class="mdl-layout-spacer"></div>
+              <div class="mdl-cell mdl-cell--4-col">
+                <div class="mdc-card mdc-elevation--z4">
+                  <hr style="margin-bottom: 0px; margin-top: 0px">
+                  <!-- Conteúdo -->
+                  <div style="padding: 20px">
+                    <h3 style="margin-bottom: 0px">Acesso inautorizado.</h3>
+                    <p style="margin-top: 0px">Por favor primeiro autentique-se com as suas credenciais para continuar.</p>
+
+                    <a href="../login" id="login_" style="border-color: rgb(170, 58, 80); color: rgb(170, 58, 80)" class="mdc-button mdc-button--stroked mdc-card__action mdc-card__action--button"><strong>Autenticar</strong> <i style="font-size: 10pt" class="material-icons">open_in_new</i></a>
+                  </div>
+                </div>
+              </div>
+            <div class="mdl-layout-spacer"></div>
+          </div>
+        </div>
+      </main>
     </div>
+  </div>
 
 
     <!-- Bootstrap JS -->

@@ -1,4 +1,16 @@
 
+document.onreadystatechange = function () {
+  var state = document.readyState;
+  if (state == 'complete') {
+      setTimeout(function(){
+        // $("#loading").addClass("hidden");
+        document.getElementById("loaded__").setAttribute("hidden", "");
+
+      },1700);
+  }
+};
+
+
 const MDCDialog = mdc.dialog.MDCDialog;
 const MDCDialogFoundation = mdc.dialog.MDCDialogFoundation;
 const util = mdc.dialog.util;
@@ -15,28 +27,28 @@ document.getElementById('data_').innerHTML="<i>" + data_actual + "</i>";
 document.getElementById('save_').setAttribute("disabled", "");
 
 //Ja fiz login, agora?
-firebase.auth().onAuthStateChanged(function(firebaseUser){
-   if(firebaseUser){
-     //If the user is logged in do this
-     //Save a cookie
-     document.getElementById('emaildocente_').innerHTML = firebaseUser.email;
-     document.getElementById('login_').setAttribute("hidden", "");
-     document.getElementById('logout_').removeAttribute("hidden", "");
-     document.getElementById('main_').removeAttribute("hidden", "");
-     document.getElementById('pleaseLogin_').setAttribute("hidden", "");
+setTimeout(function () {
+  firebase.auth().onAuthStateChanged(function(firebaseUser){
+     if(firebaseUser){
+       //If the user is logged in do this
+       //Save a cookie
+       document.getElementById('emaildocente_').innerHTML = firebaseUser.email;
+       document.getElementById('login_').setAttribute("hidden", "");
+       document.getElementById('logout_').removeAttribute("hidden", "");
+       document.getElementById('main_').removeAttribute("hidden", "");
+       document.getElementById('unautorizedaccess').setAttribute("hidden", "");
 
+     } else {
+         document.getElementById('save_').setAttribute("disabled", "");
+         document.getElementById('login_').removeAttribute("hidden", "");
+         document.getElementById('logout_').setAttribute("hidden", "");
+         document.getElementById('main_').setAttribute("hidden", "");
+         document.getElementById('unautorizedaccess').removeAttribute("hidden", "");
+     }
+  });
+}, 2000);
 
-   } else {
-     document.getElementById('save_').setAttribute("disabled", "");
-     document.getElementById('login_').removeAttribute("hidden", "");
-     document.getElementById('logout_').setAttribute("hidden", "");
-     document.getElementById('main_').setAttribute("hidden", "");
-     document.getElementById('pleaseLogin_').removeAttribute("hidden", "");
-
-   }
-});
-
-var reference = firebase.database().ref('/Alunos/');
+var reference = firebase.database().ref('/Alunos/enginformatica/');
 
 
 ////////// TER LISTA DE ESTUDANTES

@@ -20,10 +20,9 @@ $("#autenticar_").click(function() {
     passInput.setAttribute("disabled", "");
 
     if(email|pass === ""){
-      // iziToast.show({
-      //   message: "<i class='text cursor icon'></i> Todos campos devem ser preenchidos."
-      // });
-      alert("Por favor preencha todos os espaços em branco adequadamente.")
+      alert("Por favor preencha todos os espaços em branco adequadamente.");
+      emailInput.removeAttribute("disabled", "");
+      passInput.removeAttribute("disabled", "");
 
     } else {
       loginBtn.setAttribute("disabled", "");
@@ -42,7 +41,7 @@ $("#autenticar_").click(function() {
           alert("Email invalido.");
 
         // If invalid Password
-        }else if(e.code === "auth/wrong-password"){
+        } else if(e.code === "auth/wrong-password"){
           loginBtn.removeAttribute("disabled", "");
           loginBtn.innerHTML="Autenticar";
           emailInput.removeAttribute("disabled", "");
@@ -77,7 +76,7 @@ firebase.auth().onAuthStateChanged(function(firebaseUser){
      loginBtn.setAttribute("disabled", "");
      emailInput.setAttribute("disabled", "");
      passInput.setAttribute("disabled", "");
-     window.location.replace("../it");
+     window.location.replace("..");
 
    } else {
      //If the user is NOT logged in do this
