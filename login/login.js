@@ -63,7 +63,6 @@ $("#autenticar_").click(function() {
           emailInput.removeAttribute("disabled", "");
           passInput.removeAttribute("disabled", "");
           alert("Operação restrita.");
-
         }
       });
     }
@@ -78,7 +77,7 @@ firebase.auth().onAuthStateChanged(function(firebaseUser){
      loginBtn.setAttribute("disabled", "");
      emailInput.setAttribute("disabled", "");
      passInput.setAttribute("disabled", "");
-     window.history.back();
+     window.location.replace("../it");
 
    } else {
      //If the user is NOT logged in do this

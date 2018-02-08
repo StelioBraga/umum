@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <meta charset="UTF-8">
+  <meta name="author" content="Stelio Braga">
+
+  <title>Registo - C. A. e Gestão</title>
+
+  <head>
+    <!-- My Style -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="../css-js/app.css">
+    <link rel="stylesheet" href="../css-js/material-components-web/dist/material-components-web.min.css">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-orange.min.css">
+  </head>
+
+<body class="noselect">
+
+  <div class="mdl-layout mdl-js-layout">
+    <header class="mdl-layout__header mdl-layout__header--scroll">
+      <div class="mdl-layout__header-row" style="background-color: rgb(170, 58, 80)">
+        <!-- Title -->
+        <a href="../" style="font-size: 18pt; margin-right: 20px" class="material-icons">arrow_back</a>
+        <span class="mdl-layout-title">Ciências de Administração e Gestão</span>
+        <!-- Add spacer, to align navigation to the right -->
+        <div class="mdl-layout-spacer"></div>
+        <!-- Navigation -->
+        <a id="login_" href="../login" hidden class="mdl-button mdl-js-button mdl-js-ripple-effect" style="color: white">Login</a>
+        <button id="logout_" hidden class="mdl-button mdl-js-button mdl-js-ripple-effect" style="color: white">Sair da conta</button>
+
+      </div>
+    </header>
+    <main class="mdl-layout__content">
+      <div class="page-content">
+
+        <div class="mdl-grid" style="margin-top: 50px;">
+          <div class="mdl-layout-spacer"></div>
+            <div class="mdl-cell mdl-cell--8-col">
+
+              <div class="mdc-card">
+                <div class="mdc-card__media mdc-card__media--square">
+                  <h4 class="mdc-card__media-content"><strong>Registo de presenças</strong></h4>
+                </div>
+
+                <ul class="mdl-list" style="padding-left: 20px; padding-right: 20px">
+                  <li style="float: left" class="mdl-list__item mdl-list__item--three-line">
+                    <span class="mdl-list__item-primary-content">
+                      <span>Data</span>
+                        <span class="mdl-list__item-text-body" id="data_"></span>
+                    </span>
+                  </li>
+
+                  <li style="float: right" class="mdl-list__item mdl-list__item--three-line">
+                    <span class="mdl-list__item-primary-content">
+                      <span>Docente</span>
+                        <span id="emaildocente_" class="mdl-list__item-text-body">
+                          ...
+                        </span>
+                    </span>
+                  </li>
+
+                  <li class="mdl-list__item mdl-list__item--three-line">
+                    <span class="mdl-list__item-primary-content">
+                      <span>Cadeira</span>
+                        <span class="mdl-list__item-text-body">
+                          <select onchange="getCadeira()" id="select_cadeira_informatica">
+                            <optgroup label="Anos">
+                              <option value="">Escolha uma cadeira</option>
+                            </optgroup>
+                            <optgroup label="1o Ano">
+                              <option value="cont">Contabilidade</option>
+                              <option value="mat">Matematica</option>
+                              <option value="pg">Princípios de Gestão</option>
+                              <option value="teoe">Técnicas de Expressão Oral e Escrita</option>
+                              <option value="tic">Tecnologias da Informação e da Comunicação</option>
+                              <option value="tda">Teorias das Organizações</option>
+                              <option value="dpd">Diálogos, Paz e Desenvolvimento</option>
+                              <option value="epe">Elementos de Probabilidades e Estatística</option>
+                              <option value="gq">Gestão da Qualidade</option>
+                              <option value="en">Inglês</option>
+                              <option value="ie">Introdução à Economia</option>
+                              <option value="mark">Marketing</option>
+                            </optgroup>
+
+                            <optgroup label="2o Ano">
+                              <option value="agempresarial">Administração e Gestão Empresarial</option>
+                              <option value="agescolar">Administração e Gestão Escolar</option>
+                              <option value="aghospitalar">Administração e Gestão Hospitalar</option>
+                              <option value="adn">Análise Decisão e Negociação</option>
+                              <option value="aaf">Auditoria Administrativa e Financeira</option>
+                              <option value="mi1">Metodologia de Investigação I</option>
+                              <option value="ngd">Noções Gerais de Direito</option>
+                              <option value="tldg">Técnicas de Liderança e Dinâmica de Grupo</option>
+                              <option value="aempresarial">Auditoria Empresarial</option>
+                              <option value="aescolar">Auditoria Escolar</option>
+                              <option value="ce">Comunicação Empresarial</option>
+                              <option value="cg">Contabilidade de Gestão</option>
+                              <option value="hes">História Económica e Social</option>
+                              <option value="mi2">Metodologia de Investigação II</option>
+                              <option value="rp">Relações Públicas</option>
+                            </optgroup>
+
+                            <optgroup label="3o Ano">
+                              <option value="esc1">Estágio e Seminários de Coaching</option>
+                              <option value="fe">Finanças Empresariais</option>
+                              <option value="gop">Gestão das Organizações e de Projectos</option>
+                              <option value="go">Gestão de Operações</option>
+                              <option value="pseducacao">Política e Sistemas de Educação</option>
+                              <option value="pssaude">Política e Sistemas de Saúde</option>
+                              <option value="pe">Projecto Empresarial</option>
+
+                              <option value="ds">Direito da Saúde</option>
+                              <option value="dsc">Direito das Sociedades Comerciais</option>
+                              <option value="gpi">Direito Educativo e Procedimentos Administrativos</option>
+                              <option value="empreend">Empreendedorismo</option>
+                              <option value="esc2">Estágio e Seminários de Coaching</option>
+                              <option value="ers">Ética e Responsabilidade Social</option>
+                              <option value="ge">Gestão Estratégica</option>
+                              <option value="so">Sociologia das Organizações</option>
+                            </optgroup>
+                          </select>
+                        </span>
+                      </span>
+                    </span>
+                  </li>
+
+                  <div class="mdl-list__item mdl-list__item--three-line">
+                    <div class="mdl-list__item-primary-content" style="padding: 10px">
+                        <div class="mdl-list__item-text-body">
+                          <div class="mdl-textfield mdl-js-textfield" style="width: 100%">
+                            <textarea class="mdl-textfield__input" type="text" rows= "5" id="sumarioInput" ></textarea>
+                            <label class="mdl-textfield__label" for="sumarioInput">Sumário...</label>
+                          </div>
+                        </div>
+                    </div>
+                  </div>
+
+
+                </ul>
+
+                <div hidden id="loading__">
+                  <ul class="mdl-list" style="text-align: center">
+                    <div id="spinner__" class="mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active"></div>
+                    <div hidden id="error__">Falha na aquisição de dados</div>
+                  </ul>
+                </div>
+
+                <div id="alunos_save" hidden>
+                  <hr>
+                  <ul id="estudantesUl" class="mdl-list">
+                  </ul>
+
+                  <hr style="margin-bottom: 0px">
+                  <div class="mdc-card__actions" style="margin-right: 40px; margin-top: 0px">
+                    <div class="mdl-layout-spacer"></div>
+                    <div class="mdc-card__action-buttons">
+                      <button id="save_" class="mdc-button mdc-button--stroked mdc-card__action mdc-card__action--button"><strong>Guardar</strong></button>
+                      <p id="saveerror__" style="font-size: 10px" hidden>Erro no envio.</p>
+                    </div>
+
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          <div class="mdl-layout-spacer"></div>
+        </div>
+
+        <aside id="confirmationdialog_"
+          class="mdc-dialog"
+          role="alertdialog"
+          aria-labelledby="my-mdc-dialog-label"
+          aria-describedby="my-mdc-dialog-description">
+          <div class="mdc-dialog__surface" style="width: 40%">
+            <header class="mdc-dialog__header">
+              <h2 id="my-mdc-dialog-label" class="mdc-dialog__header__title">
+                Confirmação
+              </h2>
+            </header>
+            <section id="my-mdc-dialog-description_dist" class="mdc-dialog__body">
+              Lorem ipsum dolor sit amet, consectetur.
+            </section>
+            <footer class="mdc-dialog__footer">
+              <button type="button" class="mdc-button mdc-dialog__footer__button mdc-dialog__footer__button--cancel">Cancelar</button>
+              <button id="saveconfirm__" type="button" class="mdc-button mdc-dialog__footer__button mdc-dialog__footer__button--accept">Guardar</button>
+            </footer>
+          </div>
+          <div class="mdc-dialog__backdrop"></div>
+        </aside>
+
+      </div>
+
+    </main>
+    </div>
+
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.1.4/js.cookie.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
+    <script src="../css-js/material-components-web/dist/material-components-web.min.js"></script>
+    <script>mdc.autoInit()</script>
+    <script src="../css-js/moment.min.js"></script>
+    <script src="../css-js/app.js"></script>
+    <script src="gestao.js"></script>
+
+
+
+  </body>
+</html>

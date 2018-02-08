@@ -5,6 +5,7 @@ const util = mdc.dialog.util;
 
 var confirmationdialog_ = new mdc.dialog.MDCDialog.attachTo(document.querySelector('#confirmationdialog_'));
 
+
 moment.locale("pt", {
   weekdays: "Domingo_Segunda-Feira_Terça-Feira_Quarta-Feira_Quinta-Feira_Sexta-Feira_Sábado".split("_")
 });
@@ -22,17 +23,12 @@ firebase.auth().onAuthStateChanged(function(firebaseUser){
      document.getElementById('emaildocente_').innerHTML = firebaseUser.email;
      document.getElementById('login_').setAttribute("hidden", "");
      document.getElementById('logout_').removeAttribute("hidden", "");
-     document.getElementById('main_').removeAttribute("hidden", "");
-     document.getElementById('pleaseLogin_').setAttribute("hidden", "");
 
 
    } else {
      document.getElementById('save_').setAttribute("disabled", "");
      document.getElementById('login_').removeAttribute("hidden", "");
      document.getElementById('logout_').setAttribute("hidden", "");
-     document.getElementById('main_').setAttribute("hidden", "");
-     document.getElementById('pleaseLogin_').removeAttribute("hidden", "");
-
    }
 });
 
@@ -58,6 +54,7 @@ $('select').change(function() {
       document.getElementById('loading__').removeAttribute("hidden", "");
       document.getElementById('spinner__').removeAttribute("hidden", "");
       document.getElementById('error__').setAttribute("hidden", "");
+      // document.getElementById('alunos_save').removeAttribute("hidden", "");
     }
 });
 

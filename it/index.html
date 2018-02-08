@@ -3,7 +3,7 @@
   <meta charset="UTF-8">
   <meta name="author" content="Stelio Braga">
 
-  <title>UMUM - Universidade</title>
+  <title>Registo - Informática</title>
 
   <head>
     <!-- My Style -->
@@ -14,8 +14,7 @@
   </head>
 
 <body class="noselect">
-
-  <div class="mdl-layout mdl-js-layout">
+  <div id="main_" hidden class="mdl-layout mdl-js-layout">
     <header class="mdl-layout__header mdl-layout__header--scroll">
       <div class="mdl-layout__header-row" style="background-color: rgb(170, 58, 80)">
         <!-- Title -->
@@ -24,7 +23,9 @@
         <!-- Add spacer, to align navigation to the right -->
         <div class="mdl-layout-spacer"></div>
         <!-- Navigation -->
-        <a href="../login"  class="mdl-button mdl-js-button mdl-js-ripple-effect" style="color: white">Login</a>
+        <a id="login_" href="../login" hidden class="mdl-button mdl-js-button mdl-js-ripple-effect" style="color: white">Login</a>
+        <button id="logout_" hidden class="mdl-button mdl-js-button mdl-js-ripple-effect" style="color: white">Sair da conta</button>
+
       </div>
     </header>
     <main class="mdl-layout__content">
@@ -72,7 +73,7 @@
                               <option value="as">Análise de Sistemas</option>
                               <option value="dpd">Diálogos Paz e Desenvolvimento.</option>
                               <option value="po">Programação por Objetos</option>
-                              <option value="as">Inglês</option>
+                              <option value="en">Inglês</option>
                               <option value="lp">Linguagens de Programação</option>
                             </optgroup>
 
@@ -106,27 +107,36 @@
                     <div class="mdl-list__item-primary-content" style="padding: 10px">
                         <div class="mdl-list__item-text-body">
                           <div class="mdl-textfield mdl-js-textfield" style="width: 100%">
-                            <textarea class="mdl-textfield__input" type="text" rows= "5" id="sample5" ></textarea>
-                            <label class="mdl-textfield__label" for="sample5">Sumário...</label>
+                            <textarea class="mdl-textfield__input" type="text" rows= "5" id="sumarioInput" ></textarea>
+                            <label class="mdl-textfield__label" for="sumarioInput">Sumário...</label>
                           </div>
                         </div>
                     </div>
                   </div>
-                </ul>
 
-                <hr>
-
-                <ul id="estudantesUl" class="mdl-list">
-
-                    <p style="text-align: center">...</p>
 
                 </ul>
 
-                <hr style="margin-bottom: 0px">
-                <div class="mdc-card__actions" style="margin-right: 40px; margin-top: 0px">
-                  <div class="mdl-layout-spacer"></div>
-                  <div class="mdc-card__action-buttons">
-                    <button id="save_" class="mdc-button mdc-button--stroked mdc-card__action mdc-card__action--button"><strong>Guardar</strong></button>
+                <div hidden id="loading__">
+                  <ul class="mdl-list" style="text-align: center">
+                    <div id="spinner__" class="mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active"></div>
+                    <div hidden id="error__">Falha na aquisição de dados</div>
+                  </ul>
+                </div>
+
+                <div id="alunos_save" hidden>
+                  <hr>
+                  <ul id="estudantesUl" class="mdl-list">
+                  </ul>
+
+                  <hr style="margin-bottom: 0px">
+                  <div class="mdc-card__actions" style="margin-right: 40px; margin-top: 0px">
+                    <div class="mdl-layout-spacer"></div>
+                    <div class="mdc-card__action-buttons">
+                      <button id="save_" class="mdc-button mdc-button--stroked mdc-card__action mdc-card__action--button"><strong>Guardar</strong></button>
+                      <p id="saveerror__" style="font-size: 10px" hidden>Erro no envio.</p>
+                    </div>
+
                   </div>
                 </div>
 
@@ -134,10 +144,37 @@
             </div>
           <div class="mdl-layout-spacer"></div>
         </div>
+
+        <aside id="confirmationdialog_"
+          class="mdc-dialog"
+          role="alertdialog"
+          aria-labelledby="my-mdc-dialog-label"
+          aria-describedby="my-mdc-dialog-description">
+          <div class="mdc-dialog__surface" style="width: 40%">
+            <header class="mdc-dialog__header">
+              <h2 id="my-mdc-dialog-label" class="mdc-dialog__header__title">
+                Confirmação
+              </h2>
+            </header>
+            <section id="my-mdc-dialog-description_dist" class="mdc-dialog__body">
+              Lorem ipsum dolor sit amet, consectetur.
+            </section>
+            <footer class="mdc-dialog__footer">
+              <button type="button" class="mdc-button mdc-dialog__footer__button mdc-dialog__footer__button--cancel">Cancelar</button>
+              <button id="saveconfirm__" type="button" class="mdc-button mdc-dialog__footer__button mdc-dialog__footer__button--accept">Guardar</button>
+            </footer>
+          </div>
+          <div class="mdc-dialog__backdrop"></div>
+        </aside>
+
       </div>
 
     </main>
-    </div>
+  </div>
+
+  <div class="middler">
+    <h3>Por favor faça o login primeiro.</h3>
+  </div>
 
 
     <!-- Bootstrap JS -->
